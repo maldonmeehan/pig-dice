@@ -12,9 +12,8 @@ function randomDieRoller() {
 }
 
 Player.prototype.turnScoreGenerator = function(dieRoll) {
-  //this.turnScore += this.dieRoll;
-  // var turnScore;
   if (dieRoll === 1) {
+    // var totalScore
     this.turnScore = 0;
   } else {
     this.turnScore += dieRoll;
@@ -37,7 +36,6 @@ $(document).ready(function() {
 
   $("#roll").click(function(event){
     event.preventDefault();
-    // debugger;
     var dieRoll = randomDieRoller();
     $("#die1").text(dieRoll);
 
@@ -45,9 +43,9 @@ $(document).ready(function() {
     $("#player1").text(player1.turnScore);
     $("h4#player1").append("<h4>" + "Player 1: " + totalScore + "</h4>");
 
-    // var turnScore = player2.totalScoreGenerator(dieRoll);
-    // $("#player2").text(turnScore);
-    // $("h4#player2").append("<h4>" + "Player 2: " + totalScore + "</h4>");
+    var turnScore = player2.totalScoreGenerator(dieRoll);
+    $("#player2").text(turnScore);
+    $("h4#player2").append("<h4>" + "Player 2: " + totalScore + "</h4>");
   })
 
   $("#hold").click(function(event){
