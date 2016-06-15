@@ -13,21 +13,27 @@
       <div class="container">
         <h1>Pig Dice!</h1>
         <div><p>Rules to play</p></div>
+        <ul>
+          <li>Each turn, a player repeatedly rolls a die until either a 1 is rolled or the player decides to "hold".</li>
+          <li>If the player rolls a 1, they score nothing for that round and it becomes the next player's turn.</li>
+          <li>If the player rolls any other number, it is added to their turn total and the player's turn continues.</li>
+          <li>If a player chooses to "hold", their turn total is added to their score, and it becomes the next player's turn.</li>
+          <li>The first player to score 100 or more points wins.</li>
+        </ul>
         <div class="row">
           <div class="col-md-6">
             <h2>Play</h2>
               <h4 class="display">Display</h4>
-              <div id="die1" class="dice">0</div>
-              <div id="die2" class="dice">0</div>
-              <button type="submit" class="btn btn-primary" id="roll">Roll dice</button>
-              <button type="submit" class="btn btn-primary" id="hold">Hold</button>
+              <div id="die1" class="dice"></div>
+              <button type="click" class="btn btn-primary" id="roll">Roll dice</button>
+              <button type="click" class="btn btn-primary" id="hold">Hold</button>
               <h4 class="playerturn">Who's turn is it?</h4>
               <h2 id="status" style="clear:left;"></h2>
           </div>
         <div class="col-md-6">
           <h2>Score</h2>
-          <h4 id=player1 >Total score Player 1</h4>
-          <h4 id=player2 >Total Score Player 2</h4>
+          <h4 id=player1></h4>
+          <h4 id=player2></h4>
        </div>
       </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
