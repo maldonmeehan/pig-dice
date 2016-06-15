@@ -51,7 +51,7 @@ _The rules of Pig Dice are:_
 
 ## Support and contact details
 
-##### [maldonmeehan@gmail.com](maldonmeehan@gmail.com) and
+##### [maldonmeehan@gmail.com](maldonmeehan@gmail.com!) and
 [sampark18@gmail.com](sampark18@gmail.com!)
 
 ## Technologies Used
