@@ -3,7 +3,7 @@ function Player(isCurrentPlayer) {
   this.totalScore = 0;
   this.turnScore = 0;
   this.rollScore = [];
-  this.activePlayer = isCurrentPlayer;
+  this.activePlayer = true;
 }
 
 function randomDieRoller() {
@@ -26,13 +26,22 @@ Player.prototype.totalScoreGenerator = function(turnScore) {
   return this.totalScore;
 }
 
+Player.prototype.activePlayer = function (activePlayer){
+  if (dieRoll === 1)
+  this.switch();
+  else {
+    this.totalScore += this.turnScore;
+  }
+}
+
 // switch players with true false (1 or hold)
 // if total score is 100, than game win
 
 // Frontend logic
 $(document).ready(function() {
-  var player1 = new Player(true);
-  var player2 = new Player(false);
+  debugger;
+  var player1 = new Player(0, 0, 0, true);
+  var player2 = new Player(0, 0, 0, false);
 
   $("#roll").click(function(event){
     event.preventDefault();
@@ -41,11 +50,11 @@ $(document).ready(function() {
 
     var turnScore = player1.turnScoreGenerator(dieRoll);
     $("#player1").text(player1.turnScore);
-    $("h4#player1").append("<h4>" + "Player 1: " + totalScore + "</h4>");
+    // $("h4#player1").append("<h4>" + "Player 1: " + totalScore + "</h4>");
 
     var turnScore = player2.totalScoreGenerator(dieRoll);
     $("#player2").text(turnScore);
-    $("h4#player2").append("<h4>" + "Player 2: " + totalScore + "</h4>");
+    // $("h4#player2").append("<h4>" + "Player 2: " + totalScore + "</h4>");
   })
 
   $("#hold").click(function(event){
