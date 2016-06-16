@@ -30,21 +30,21 @@ Player.prototype.totalScoreGenerator = function() {
 }
 
 //switch
-Player.prototype.activePlayer = function() {
-  if (player1.activePlayer === true) {
-    player1.activePlayer = false;
-    player2.activePlayer = true;
-  } else {
-    player1.activePlayer = true;
-    player2.activePlayer = false;
-  }
-}
+// Player.prototype.activePlayer = function() {
+//   if (player1.activePlayer === true) {
+//     player1.activePlayer = false;
+//     player2.activePlayer = true;
+//   } else {
+//     player1.activePlayer = true;
+//     player2.activePlayer = false;
+//   }
+// }
 
 Player.prototype.playerSwitch = function() {
   if (this.activePlayer === true) {//may have to revisit?
     this.activePlayer = false;
   } else {
-    this.activePlayer == true;
+    this.activePlayer = true;
   }
 }
 // if total score is 100, than game win
@@ -57,7 +57,14 @@ $(document).ready(function() {
 
     if (player1.activePlayer === true) {
       player1.randomDieRoller();
+      if (player1.rollScore === 1){
+        player1.playerSwitch();
+        player2.playerSwitch();
+      }
       player1.roundScoreGenerator(player1.rollScore);
+      console.log("p1 roundscore" + player1.roundScore);
+
+
       $("#die1").text(player1.rollScore);
       $("#player1round").text(player1.roundScore);
 
@@ -66,6 +73,10 @@ $(document).ready(function() {
       player2.roundScoreGenerator(player2.rollScore);
       $("die1").text(player2.rollScore);
       $("#player2round").text(player2.roundScore);
+    }
+
+    else {
+      console.log("something broke!");
     }
   });
 
@@ -84,6 +95,9 @@ $(document).ready(function() {
       $("#player2total").text(player2.totalScore);
       $("#die1").text(player2.rollScore);
       player2.playerSwitch();
+    }
+    else {
+      console.log("here");
     }
     });
   });
